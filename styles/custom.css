@@ -1,3 +1,9 @@
+/* Breadcrumb */
+.notion-header .notion-page-icon-inline {
+    width: 18px;
+    height: 20px;
+}
+
 /* Hide blank blocks on Homepage in when on small devices */
 @media only screen and (max-width: 500px) {
     .index-page .notion-blank {
