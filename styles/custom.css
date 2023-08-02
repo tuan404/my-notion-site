@@ -29,8 +29,21 @@
 
 /* Hide properties bottom line */
 .notion-collection-row {
-    border-bottom: none;
+    /* border-bottom: none; */
+    border-bottom: 1px solid #7777774d;
     margin-bottom: initial;
+}
+
+.notion-collection-row-property:has(.notion-property-url:empty) {
+    display: none;
+}
+
+.notion-collection-row-property:has(.notion-property-text:empty) {
+    display: none;
+}
+
+.notion-collection-row-property:has(.notion-property-formula:empty) {
+    display: none;
 }
 
 /* Display full image */
