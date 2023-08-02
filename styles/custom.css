@@ -124,7 +124,13 @@
 } */
 
 .notion-list-body {
-    gap: 4px;
+    gap: 2px;
+}
+
+.notion-list-item {
+    border-radius: 3px;
+    height: initial;
+    padding: 4px;
 }
 
 .dark-mode .notion-collection-view-tabs-content-item.notion-collection-view-tabs-content-item-active {
