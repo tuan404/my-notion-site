@@ -39,7 +39,7 @@ body {
   caret-color: var(--fg-color);
 }
 
-::-webkit-scrollbar
+/* ::-webkit-scrollbar
 {
   width: 5px;
   height: 5px;
@@ -59,4 +59,4 @@ body {
 
 ::-webkit-scrollbar-track {           
     background-color: var(--bg-color);
-}
+} */

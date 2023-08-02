@@ -14,7 +14,7 @@ export default siteConfig({
   author: 'Tuan Truong',
 
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  description: 'Howdy I am Tuan, a designer that codes and build things!',
 
   // social usernames (optional)
   twitter: 'transitive_bs',
