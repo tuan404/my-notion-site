@@ -89,7 +89,11 @@
 
 /* Link */
 .notion-link {
-    border-bottom: 1em solid var(--link-underline);
+    border-color: var(--link-underline);
+}
+
+.notion-collection-row-property .notion-link {
+    border-bottom: solid 0.1rem var(--link-underline);
 }
 
 .notion-page-title-text {
