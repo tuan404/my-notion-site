@@ -335,14 +335,14 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 /* GLOBAL */
 /* Quote block */
 blockquote {
-    margin-top: 24px !important;
+    margin: 24px 0 !important;
 }
 
 .notion-quote {
     font-size: initial !important;
     font-style: italic;
     border-left: 3px solid currentColor;
-    padding: 1em 2em !important;
+    padding: 0 1.5em !important;
     color: rgb(104, 104, 104);
 }
 
