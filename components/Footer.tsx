@@ -8,7 +8,7 @@ import * as React from 'react'
 // import { FaYoutube } from '@react-icons/all-files/fa/FaYoutube'
 // import { FaZhihu } from '@react-icons/all-files/fa/FaZhihu'
 import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
-import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
+import { IoSunnySharp } from '@react-icons/all-files/io5/IoSunnySharp'
 
 import * as config from '@/lib/config'
 import { useDarkMode } from '@/lib/use-dark-mode'
@@ -47,7 +47,7 @@ export const FooterImpl: React.FC = () => {
               onClick={onToggleDarkMode}
               title='Toggle dark mode'
             >
-              {isDarkMode ? <IoSunnyOutline /> : <IoMoonSharp />}
+              {isDarkMode ? <IoSunnySharp /> : <IoMoonSharp />}
             </a>
           )}
         </div>
