@@ -122,7 +122,31 @@
     height: 24px;
 }
 
-/* Collection */ 
+/* Collection */
+
+.notion-collection {
+    width: 100%;
+}
+
+/* Collection small font-size */
+.notion-gallery-grid.notion-gallery-grid-size-small .notion-page-title-text {
+    font-size: 1.7em;
+}
+
+div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
+    width: 100%;
+}
+
+.notion-collection-view-tabs-row {
+    overflow: auto;
+    flex-wrap: nowrap;
+}
+
+/* Hide collection tabs scroll bar */
+.notion-collection-view-tabs-row::-webkit-scrollbar {
+    display: none;
+}
+
 .notion-collection-card-cover {
     border-radius: 8px;
     height: initial !important;
@@ -152,20 +176,98 @@
     padding: 4px;
 }
 
+@media only screen and (max-width: 500px) {
+
+    /* Collection re-order list items */
+    .notion-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notion-list-item-body {
+        margin-left: 30px;
+    }
+
+    .notion-list-item-body:has(.notion-property-text:empty) {
+        display: none;
+    }
+    
+    .notion-list-item-property {
+        margin: 0;
+    }
+}
+
+/* Re-make collection tabs view & behavior */
+.notion-collection-view-type {
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+}
+
+.dark-mode .notion-collection-view-type-title {
+    color: #ffffff82;
+    font-weight: initial;
+}
+
+.dark-mode .notion-collection-view-type-icon {
+    fill: #ffffff82;
+}
+
+.light-mode .notion-collection-view-type-title {
+    color: #37352f80;
+    font-weight: initial;
+}
+
+.light-mode .notion-collection-view-type-icon {
+    fill: #37352f80;
+}
+
+.notion-collection-view-type:hover {
+    background-color: var(--bg-color-0);
+    border-radius: 3px;
+}
+
+.dark-mode .notion-collection-view-type:hover {
+    background-color: #f7f7f71a;
+}
+
+.notion-collection-view-tabs-content-item {
+    padding: 0 0 4px 0;
+    height: 30px;
+}
+
+.notion-collection-view-tabs-content-item:hover {
+    background-color: unset;
+    border-radius: unset;
+}
+
 .dark-mode .notion-collection-view-tabs-content-item.notion-collection-view-tabs-content-item-active {
     border-bottom: solid 2px var(--fg-color);
 }
 
-.dark-mode .notion-collection-view-tabs-content-item:hover {
-    background-color: #ffffff1a;
+.dark-mode .notion-collection-view-tabs-content-item.notion-collection-view-tabs-content-item-active .notion-collection-view-type-title {
+    color: var(--fg-color);
 }
+
+.dark-mode .notion-collection-view-tabs-content-item.notion-collection-view-tabs-content-item-active .notion-collection-view-type-icon {
+    fill: var(--fg-color);
+}
+
+.light-mode .notion-collection-view-tabs-content-item.notion-collection-view-tabs-content-item-active .notion-collection-view-type-title {
+    color: var(--fg-color);
+}
+
+.light-mode .notion-collection-view-tabs-content-item.notion-collection-view-tabs-content-item-active .notion-collection-view-type-icon {
+    fill: var(--fg-color);
+}
+/* End of Collection tabs remake */
 
 .notion-collection-card-cover img {
     border-radius: 8px;
 }
 
 .notion-gallery-grid.notion-gallery-grid-size-large {
-    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
     grid-gap: 6vmin;
     gap: 6vmin !important;
 }
@@ -181,6 +283,28 @@
     grid-gap: 2vmin;
     gap: 2vmin !important;
 }
+
+/* Smaller collection item title on small devices */
+@media only screen and (max-width: 500px) {
+    .notion-gallery-grid.notion-gallery-grid-size-small {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-gap: 4vmin;
+        gap: 4vmin !important;
+    }
+
+    .notion-gallery-grid .notion-page-title-text {
+        font-size: 1.5em !important;
+    }
+
+    .notion-gallery-grid.notion-gallery-grid-size-small .notion-page-title-text {
+        font-size: 1.1em !important;
+    }
+
+    .notion-collection-card-body {
+        padding: 4px !important;
+    }
+}
+
 .notion-gallery-grid.notion-gallery-grid-size-small .notion-page-title-text {
     font-size: 1.2em;
 }
