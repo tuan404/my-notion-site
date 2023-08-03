@@ -321,3 +321,13 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2vmin;
 } */
+
+/* GLOBAL */
+/* End of GLOBAL */
+
+/* BOOKSHELF page */
+/* Block id: notion-block-e3236a5529b0457a969ed52fcf138b3c */
+.notion-block-e3236a5529b0457a969ed52fcf138b3c .notion-table-view {
+    padding: 0 !important;
+}
+/* End of BOOKSHELF page */
