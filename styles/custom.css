@@ -89,14 +89,19 @@
 
 /* Link */
 .notion-link {
-    border-bottom: none;
+    border-bottom: 1em solid var(--link-underline);
 }
 
 .notion-page-title-text {
     border-bottom: none !important;
 }
 
-/* Custom menu */
+/* MENU */
+/* Block id: notion-block-8063463eba084138a52fd42586cd57fa */
+.notion-block-8063463eba084138a52fd42586cd57fa .notion-link {
+    border-bottom: none;
+}
+
 .notion-block-8063463eba084138a52fd42586cd57fa {
     justify-content: space-between;
     background: #f7f7f7;
@@ -135,6 +140,11 @@
 
 .notion-collection {
     width: 100%;
+}
+
+/* Disable double hover on item */
+.notion-list-item.notion-page-link .notion-page-link:hover {
+    background-color: transparent;
 }
 
 /* Collection small font-size */
