@@ -118,8 +118,17 @@
 .notion-block-8063463eba084138a52fd42586cd57fa div:nth-child(odd) {
     width: auto !important;
 }
-.notion-default {
+.notion-sync-block .notion-default {
     height: 24px;
+}
+
+/* CV */
+.notion-block-d46ec141fb0841f3846c319c4403fb7f {
+    display: flex;
+}
+
+.notion-block-d46ec141fb0841f3846c319c4403fb7f .notion-link {
+    display: flex;
 }
 
 /* Collection */
