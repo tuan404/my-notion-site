@@ -54,7 +54,7 @@ export default siteConfig({
   navigationStyle: 'custom',
   navigationLinks: [
     {
-      title: 'My works & Experiences',
+      title: 'My works',
       pageId: 'e4e48fed7c5c4aa59f2fe7c86ac2a770'
     },
     {
