@@ -429,22 +429,48 @@ blockquote {
 }
 /* End of BOOKSHELF page */
 
-/* Divider */
+/* DIVIDER */
 .notion-hr {
     border-color: var(--link-underline);
 }
-/* End of Divider */
+/* End of DIVIDER */
 
-/* Katex equation */
+/* KATEX EQUATION */
 .notion-equation {
     background: none !important;
     user-select: none;
 }
 
-/* End of Katex equation */
+/* End of KATEX EQUATION */
 
-/* Bypass "p" missing block */
+/* BYPASS "p" missing block on Experience page */
 .notion-block-b797bf68506d45de821187ef630e9d80 {
     display: none;
 }
-/* End of Bypass */
+/* End of BYPASS */
+
+/* TOGGLE */
+.notion-toggle > summary > span:first-child {
+    margin-left: 5px;
+}
+
+.notion-toggle > summary > b {
+    margin-left: 5px !important;
+}
+/* End of TOGGLE */
+
+
+/* CONTACT info on About page */
+/* Block ID: notion-block-88cee21aaa554f27b8244e71657dfb8f */
+.notion-block-88cee21aaa554f27b8244e71657dfb8f div {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .notion-block-88cee21aaa554f27b8244e71657dfb8f div {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* End of CONTACT */
