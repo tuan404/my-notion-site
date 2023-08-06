@@ -92,13 +92,13 @@
 }
 
 /* LINK */
-a.notion-link {
-    border-color: var(--link-underline);
-    display: inline-flex;
+
+.light-mode a.notion-link {
+    border-color: var(--link-underline-on-light) !important;   
 }
 
-.notion-collection-row-property .notion-link {
-    border-bottom: solid 0.1rem var(--link-underline);
+.dark-mode a.notion-link {
+    border-color: var(--link-underline-on-dark) !important;
 }
 
 .notion-link:focus:not(:has(.notion-page-title-text)),
@@ -121,16 +121,24 @@ a.notion-link {
 }
 
 .notion-link:has(.notion-page-title) {
-    top: 4px !important;
+    top: 5px !important;
     border-bottom: none;
 }
 
-.notion-page-title-text {
-    border-bottom: 1px solid var(--link-underline) !important;
+.light-mode .notion-page-title-text {
+    border-bottom-color: var(--link-underline-on-light) !important;
+}
+
+.dark-mode .notion-page-title-text {
+    border-bottom-color: var(--link-underline-on-dark) !important;
+}
+
+.notion-link .notion-page-title-text {
+    border-bottom: solid;
     position: relative;
     transition: unset;
     opacity: 1;
-    border-bottom-width: 0.1rem;
+    border-bottom-width: 0.07rem !important;
     background: transparent;
     background-origin: border-box;
     background-repeat: no-repeat;
@@ -138,17 +146,22 @@ a.notion-link {
     background-size: 0 0.1rem;
 }
 
-.notion-page-title-text:focus,
-.notion-page-title-text:hover {
+.notion-link:focus .notion-page-title-text,
+.notion-link:hover .notion-page-title-text {
   border-bottom-color: transparent !important;
 
   background-image: linear-gradient(90.68deg, #00AEE3 0.26%, #00AEE3 102.37%);
   background-repeat: no-repeat;
   background-position: 0 100%;
-  background-size: 100% 0.11rem;
+  background-size: 100% 0.1rem;
 
   transition-property: background-position, background-size;
   transition-duration: 300ms;
+}
+
+/* Exclude pages in list view */
+.notion-list-collection .notion-page-title-text {
+    border-bottom: none;
 }
 /* End of MENTIONED PAGES */
 
@@ -260,7 +273,7 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
     }
 
     .notion-list-item-body {
-        margin-left: 30px;
+        margin-left: 27px;
     }
 
     .notion-list-item-body:has(.notion-property-text:empty) {
@@ -425,7 +438,9 @@ blockquote {
 /* Katex equation */
 .notion-equation {
     background: none !important;
+    user-select: none;
 }
+
 /* End of Katex equation */
 
 /* Bypass "p" missing block */
