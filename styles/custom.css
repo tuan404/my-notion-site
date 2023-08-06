@@ -91,18 +91,66 @@
     }
 }
 
-/* Link */
-.notion-link {
+/* LINK */
+a.notion-link {
     border-color: var(--link-underline);
+    display: inline-flex;
 }
 
 .notion-collection-row-property .notion-link {
     border-bottom: solid 0.1rem var(--link-underline);
 }
 
-.notion-page-title-text {
-    border-bottom: none !important;
+.notion-link:focus:not(:has(.notion-page-title-text)),
+.notion-link:hover:not(:has(.notion-page-title-text)) {
+  border-bottom-color: transparent;
+
+  background-image: linear-gradient(90.68deg, #00AEE3 0.26%, #00AEE3 102.37%);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.1rem;
+
+  transition-property: background-position, background-size;
+  transition-duration: 300ms;
 }
+/* End of LINK */
+
+/* MENTIONED PAGES */
+.notion-page-icon-inline {
+    margin: 0 4px 0 0 !important;
+}
+
+.notion-link:has(.notion-page-title) {
+    top: 4px !important;
+    border-bottom: none;
+}
+
+.notion-page-title-text {
+    border-bottom: 1px solid var(--link-underline) !important;
+    position: relative;
+    transition: unset;
+    opacity: 1;
+    border-bottom-width: 0.1rem;
+    background: transparent;
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    background-size: 0 0.1rem;
+}
+
+.notion-page-title-text:focus,
+.notion-page-title-text:hover {
+  border-bottom-color: transparent !important;
+
+  background-image: linear-gradient(90.68deg, #00AEE3 0.26%, #00AEE3 102.37%);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.11rem;
+
+  transition-property: background-position, background-size;
+  transition-duration: 300ms;
+}
+/* End of MENTIONED PAGES */
 
 /* MENU */
 /* Block id: notion-block-8063463eba084138a52fd42586cd57fa */
@@ -367,3 +415,21 @@ blockquote {
     padding: 0 !important;
 }
 /* End of BOOKSHELF page */
+
+/* Divider */
+.notion-hr {
+    border-color: var(--link-underline);
+}
+/* End of Divider */
+
+/* Katex equation */
+.notion-equation {
+    background: none !important;
+}
+/* End of Katex equation */
+
+/* Bypass "p" missing block */
+.notion-block-b797bf68506d45de821187ef630e9d80 {
+    display: none;
+}
+/* End of Bypass */
