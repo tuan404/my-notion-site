@@ -103,7 +103,7 @@
 
 .notion-link:focus:not(:has(.notion-page-title-text)),
 .notion-link:hover:not(:has(.notion-page-title-text)) {
-  border-bottom-color: transparent;
+  border-bottom-color: transparent !important;
 
   background-image: linear-gradient(90.68deg, #00AEE3 0.26%, #00AEE3 102.37%);
   background-repeat: no-repeat;
