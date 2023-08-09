@@ -207,6 +207,11 @@
 
 /* Collection */
 
+/* Hide item that don't has cover image */
+.notion-collection-card:has(.notion-collection-card-cover:empty) {
+    display: none;
+}
+
 .notion-collection {
     width: 100%;
 }
