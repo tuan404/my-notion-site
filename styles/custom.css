@@ -408,6 +408,12 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 
 /* GLOBAL */
 
+/* List */
+ol > ol {
+    padding-left: initial;
+}
+
+/* Page icon */
 .notion-page-has-cover.notion-page-has-icon.notion-page-has-image-icon .notion-page-icon-hero.notion-page-icon-image {
     background: white;
     border-radius: 50%;
@@ -424,7 +430,7 @@ blockquote {
     font-size: initial !important;
     font-style: italic;
     border-left: 3px solid currentColor;
-    padding: 0 1.5em !important;
+    padding: 1em 1.5em !important;
     color: rgb(104, 104, 104);
 }
 
