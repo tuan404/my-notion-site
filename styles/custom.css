@@ -410,7 +410,7 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 
 /* List */
 ol > ol {
-    padding-left: initial;
+    padding-left: initial !important;
 }
 
 /* Page icon */
