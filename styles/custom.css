@@ -407,6 +407,14 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 } */
 
 /* GLOBAL */
+
+.notion-page-has-cover.notion-page-has-icon.notion-page-has-image-icon .notion-page-icon-hero.notion-page-icon-image {
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 -12px 16px 0px hsla(0,0%,6%,.1);
+
+}
+
 /* Quote block */
 blockquote {
     margin: 24px 0 !important;
