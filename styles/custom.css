@@ -425,6 +425,11 @@ blockquote {
     background-color: #f5f5f5;
     border-radius: initial !important;
 }
+
+/* Image display */
+.notion-asset-wrapper div {
+    height: auto !important;
+}
 /* End of GLOBAL */
 
 /* BOOKSHELF page */
