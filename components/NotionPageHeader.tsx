@@ -1,9 +1,11 @@
 import * as React from 'react'
 
+// Import helper function
 import * as types from 'notion-types'
 import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
 import { IoSunnySharp } from '@react-icons/all-files/io5/IoSunnySharp'
 import cs from 'classnames'
+import { getPageProperty } from 'notion-utils'
 import { Breadcrumbs, Header, Search, useNotionContext } from 'react-notion-x'
 
 import { isSearchEnabled, navigationLinks, navigationStyle } from '@/lib/config'
@@ -37,10 +39,26 @@ export const NotionPageHeader: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
   pageId: string
 }> = ({ block, pageId }) => {
+  const { recordMap } = useNotionContext() // Get the Notion record map
   const { components, mapPageUrl } = useNotionContext()
+
   const sanitizedCurrentPageId = pageId ? pageId.replace(/-/g, '') : ''
 
-  console.log('sanitizedCurrentPageId:', sanitizedCurrentPageId)
+  // Ensure the pageBlock exists and recordMap contains data for this page ID
+  const pageBlock = recordMap?.block?.[sanitizedCurrentPageId]?.value
+
+  // If pageBlock exists, get the title, otherwise fallback
+  const title = pageBlock
+    ? getPageProperty('title', pageBlock, recordMap) || 'Untitled Page'
+    : 'Untitled Page'
+
+  // Log the current page ID and title
+  console.log(
+    'sanitizedCurrentPageId:',
+    sanitizedCurrentPageId,
+    'title:',
+    title
+  )
 
   if (navigationStyle === 'default') {
     return <Header block={block} />

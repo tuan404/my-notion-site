@@ -55,11 +55,11 @@ export default siteConfig({
   navigationLinks: [
     {
       title: 'My works',
-      pageId: 'e4e48fed7c5c4aa59f2fe7c86ac2a770'
+      pageId: '5583591bdf5146c498c0d94c09f7d3e6'
     },
     {
       title: 'About',
-      pageId: '734fa7d4dcc345929ea00d5fc87c5d7a'
+      pageId: '8ac0a4321e2843b8bb9302496fe693e8'
     }
   ]
 })
