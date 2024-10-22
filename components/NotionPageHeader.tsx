@@ -40,6 +40,8 @@ export const NotionPageHeader: React.FC<{
   const { components, mapPageUrl } = useNotionContext()
   const sanitizedCurrentPageId = pageId ? pageId.replace(/-/g, '') : ''
 
+  console.log('sanitizedCurrentPageId:', sanitizedCurrentPageId)
+
   if (navigationStyle === 'default') {
     return <Header block={block} />
   }
@@ -57,6 +59,13 @@ export const NotionPageHeader: React.FC<{
               }
 
               const sanitizedLinkPageId = link.pageId?.replace(/-/g, '')
+
+              console.log(
+                'sanitizedLinkPageId: ',
+                sanitizedLinkPageId,
+                'title: ',
+                link.title
+              )
 
               const isActive = sanitizedLinkPageId === sanitizedCurrentPageId
 
