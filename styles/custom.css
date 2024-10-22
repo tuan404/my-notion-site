@@ -357,6 +357,7 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 
 .notion-collection-card-cover img {
     border-radius: 8px;
+    object-fit: cover;
 }
 
 .notion-gallery-grid.notion-gallery-grid-size-large {
@@ -571,9 +572,12 @@ blockquote {
 
 .notion-property-select-item, .notion-property-multi_select-item {
     height: 22px;
-    --squircle-smooth: 1;
-    mask-image: paint(squircle);
-    --squircle-radius: 60px;
-    --squircle-fill: #ffffff;
-    filter: drop-shadow(0px 8px 8px hsla(0, 0%, 64%, .1));
+}
+
+.notion-table-of-contents-item {
+    border-radius: var(--border-radius-md);
+}
+
+.notion-table-of-contents-active-item {
+    font-weight: bold;
 }
