@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useRouter } from 'next/router'
 
 import * as types from 'notion-types'
 import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
@@ -35,8 +36,10 @@ const ToggleThemeButton = () => {
 
 export const NotionPageHeader: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
-}> = ({ block }) => {
+  pageId: string
+}> = ({ block, pageId }) => {
   const { components, mapPageUrl } = useNotionContext()
+  const sanitizedCurrentPageId = pageId ? pageId.replace(/-/g, '') : ''
 
   if (navigationStyle === 'default') {
     return <Header block={block} />
@@ -54,27 +57,34 @@ export const NotionPageHeader: React.FC<{
                 return null
               }
 
-              if (link.pageId) {
-                return (
-                  <components.PageLink
-                    href={mapPageUrl(link.pageId)}
-                    key={index}
-                    className={cs(styles.navLink, 'breadcrumb', 'button')}
-                  >
-                    {link.title}
-                  </components.PageLink>
-                )
-              } else {
-                return (
-                  <components.Link
-                    href={link.url}
-                    key={index}
-                    className={cs(styles.navLink, 'breadcrumb', 'button')}
-                  >
-                    {link.title}
-                  </components.Link>
-                )
-              }
+              const sanitizedLinkPageId = link.pageId?.replace(/-/g, '')
+
+              const isActive = sanitizedLinkPageId === sanitizedCurrentPageId
+
+              return (
+                <div
+                  key={index}
+                  className={cs('breadcrumb-wrapper', {
+                    isActive // Apply the isActive class to the div
+                  })}
+                >
+                  {link.pageId ? (
+                    <components.PageLink
+                      href={mapPageUrl(link.pageId)}
+                      className={cs(styles.navLink, 'breadcrumb', 'button')}
+                    >
+                      {link.title}
+                    </components.PageLink>
+                  ) : (
+                    <components.Link
+                      href={link.url}
+                      className={cs(styles.navLink, 'breadcrumb', 'button')}
+                    >
+                      {link.title}
+                    </components.Link>
+                  )}
+                </div>
+              )
             })
             .filter(Boolean)}
 

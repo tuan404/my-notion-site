@@ -1,9 +1,19 @@
 :root {
     /* Color */
-    --blue: #00AEE3;
+    --primary-blue: #00AEE3;
     --link-underline: #7777774d;
     --link-underline-on-light: #7777774d;
     --link-underline-on-dark: #ffffff70;
     --common-line: #7777774d;
     /* -------- */
+
+    --blue-bg: #e7f3f8;
+    --notion-blue: #337ea9;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    --border-radius-xxl: 20px;
+    --border-radius-xxxl: 24px;
 }

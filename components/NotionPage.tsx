@@ -3,9 +3,11 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 import { Analytics } from '@vercel/analytics/react'
 import cs from 'classnames'
+import 'css-houdini-squircle'
 import { PageBlock } from 'notion-types'
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
 import BodyClassName from 'react-body-classname'
@@ -102,6 +104,13 @@ const Tweet = ({ id }: { id: string }) => {
   return <TweetEmbed tweetId={id} />
 }
 
+const sanitizeTitleForClass = (title: string) => {
+  return title
+    .toLowerCase() // Convert to lowercase
+    .replace(/\s+/g, '-') // Replace spaces with dashes
+    .replace(/[^a-z0-9-]/g, '') // Remove non-alphanumeric characters
+}
+
 const propertyLastEditedTimeValue = (
   { block, pageHeader },
   defaultFn: () => React.ReactNode
@@ -149,6 +158,14 @@ export const NotionPage: React.FC<types.PageProps> = ({
   error,
   pageId
 }) => {
+  useEffect(() => {
+    if (typeof CSS !== 'undefined') {
+      CSS.paintWorklet.addModule(
+        new URL('https://www.unpkg.com/css-houdini-squircle/squircle.min.js')
+      )
+    }
+  }, [])
+
   const router = useRouter()
   const lite = useSearchParam('lite')
 
@@ -162,12 +179,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
       Pdf,
       Modal,
       Tweet,
-      Header: NotionPageHeader,
+      Header: (props) => <NotionPageHeader {...props} pageId={pageId} />,
       propertyLastEditedTimeValue,
       propertyTextValue,
       propertyDateValue
     }),
-    []
+    [pageId]
   )
 
   // lite mode is for oembed
@@ -212,6 +229,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   }
 
   const title = getBlockTitle(block, recordMap) || site.name
+  const sanitizedTitle = sanitizeTitleForClass(title)
 
   console.log('notion page', {
     isDev: config.isDev,
@@ -254,8 +272,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
         url={canonicalPageUrl}
       />
 
-      {isLiteMode && <BodyClassName className='notion-lite' />}
-      {isDarkMode && <BodyClassName className='dark-mode' />}
+      {isLiteMode && (
+        <BodyClassName className={`notion-lite ${sanitizedTitle}`} />
+      )}
+      {isDarkMode && (
+        <BodyClassName className={`dark-mode ${sanitizedTitle}`} />
+      )}
 
       <NotionRenderer
         bodyClassName={cs(

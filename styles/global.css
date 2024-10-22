@@ -60,3 +60,17 @@ body {
 ::-webkit-scrollbar-track {           
     background-color: var(--bg-color);
 } */
+
+@media only screen and (min-width: 1200px) {
+  .notion-page-cover-wrapper, .notion-page-cover-wrapper span, .notion-page-cover-wrapper img {
+    border-radius: var(--border-radius-xxxl) !important;
+  }
+}
+
+.notion-collection-card:hover {
+  background: var(--blue-bg) !important;
+}
+
+.notion-page-scroller {
+  padding-top: 8px;
+}
