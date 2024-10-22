@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { useRouter } from 'next/router'
 
 import * as types from 'notion-types'
 import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'

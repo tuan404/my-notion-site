@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { Analytics } from '@vercel/analytics/react'
 import cs from 'classnames'
 import 'css-houdini-squircle'
 import { PageBlock } from 'notion-types'
