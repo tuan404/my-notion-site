@@ -23,13 +23,7 @@ import 'styles/notion.css'
 import 'styles/prism-theme.css'
 import 'styles/variables.css'
 
-import {
-  fathomConfig,
-  fathomId,
-  isServer,
-  posthogConfig,
-  posthogId
-} from '@/lib/config'
+import { fathomConfig, fathomId, posthogConfig, posthogId } from '@/lib/config'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
