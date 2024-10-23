@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 import cs from 'classnames'
-import 'css-houdini-squircle'
 import { PageBlock } from 'notion-types'
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
 import BodyClassName from 'react-body-classname'
@@ -157,14 +156,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   error,
   pageId
 }) => {
-  useEffect(() => {
-    if (typeof CSS !== 'undefined') {
-      CSS.paintWorklet.addModule(
-        new URL('https://www.unpkg.com/css-houdini-squircle/squircle.min.js')
-      )
-    }
-  }, [])
-
   const router = useRouter()
   const lite = useSearchParam('lite')
 

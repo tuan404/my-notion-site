@@ -416,21 +416,14 @@ ol > ol {
 
 /* Page icon */
 .notion-page-has-cover.notion-page-has-icon.notion-page-has-image-icon .notion-page-icon-hero.notion-page-icon-image {
-    --squircle-smooth: 1;
-    background: paint(squircle);
-    mask-image: paint(squircle);
-    --squircle-radius: 60px;
-    --squircle-fill: #ffffff;
-    filter: drop-shadow(0px 8px 8px hsla(0, 0%, 64%, .1));
-
+    background: white;
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 -12px 16px 0px hsla(0,0%,6%,.1);
 }
 
-.notion-page-icon-hero {
-    --squircle-smooth: 1;
-    mask-image: paint(squircle);
-    --squircle-radius: 60px;
-    --squircle-fill: #ffffff;
-    filter: drop-shadow(0px 8px 8px hsla(0, 0%, 64%, .1));
+.notion-page-icon-hero img {
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 -12px 16px 0px hsla(0,0%,6%,.1);
 }
 
 .notion-collection-card {
@@ -528,10 +521,7 @@ blockquote {
 .breadcrumbs .isActive {
     font-weight: bold;
     background: var(--blue-bg);
-    --squircle-smooth: 1;
-    background: paint(squircle);
-    --squircle-radius: 60px;
-    --squircle-fill: var(--blue-bg);
+    border-radius: var(--border-radius-md);
 }
 
 .breadcrumb {
@@ -543,26 +533,14 @@ blockquote {
 .breadcrumb.active {
     font-weight: bold;
     background: var(--blue-bg);
-    --squircle-smooth: 1;
-    background: paint(squircle);
-    --squircle-radius: 60px;
-    --squircle-fill: var(--blue-bg);
 }
 
 .breadcrumbs a:hover {
     background: var(--blue-bg) !important;
-    --squircle-smooth: 1;
-    background: paint(squircle);
-    --squircle-radius: 60px;
-    --squircle-fill: var(--blue-bg);
 }
 
 .notion-callout.notion-block-c8cd2399347f41529a8c8f976343bb5e {
     border: none;
-    --squircle-smooth: 1;
-    background: paint(squircle);
-    --squircle-radius: 16px;
-    --squircle-fill: var(--primary-blue);
     color: white;
 }
 
@@ -580,4 +558,8 @@ blockquote {
 
 .notion-table-of-contents-active-item {
     font-weight: bold;
+}
+
+.notion-callout {
+    border: none;
 }
