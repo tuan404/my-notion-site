@@ -264,9 +264,13 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 }
 
 .notion-list-item {
-    border-radius: 3px;
+    border-radius: var(--border-radius-md);
     height: initial;
-    padding: 4px;
+    padding: 4px 8px;
+}
+
+.notion-page-link:hover {
+    background: var(--blue-bg);
 }
 
 @media only screen and (max-width: 500px) {
