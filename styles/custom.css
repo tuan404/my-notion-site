@@ -418,12 +418,12 @@ ol > ol {
 .notion-page-has-cover.notion-page-has-icon.notion-page-has-image-icon .notion-page-icon-hero.notion-page-icon-image {
     background: white;
     border-radius: var(--border-radius-xl);
-    box-shadow: 0 -12px 16px 0px hsla(0,0%,6%,.1);
+    box-shadow: 0 -24px 24px 0px hsla(0,0%,48%,.1);
 }
 
 .notion-page-icon-hero img {
     border-radius: var(--border-radius-xl);
-    box-shadow: 0 -12px 16px 0px hsla(0,0%,6%,.1);
+    box-shadow: 0 -24px 24px 0px hsla(0,0%,48%,.1);
 }
 
 .notion-page-icon-hero.notion-page-icon-image img {
