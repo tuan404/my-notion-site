@@ -446,12 +446,15 @@ blockquote {
     border-left: 3px solid currentColor;
     padding: 1em 1.5em !important;
     color: rgb(104, 104, 104);
+    border-top-right-radius: var(--border-radius-xl) !important;
+    border-bottom-right-radius: var(--border-radius-xl) !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 .notion-teal_background {
     background-image: none !important;
     background-color: #f5f5f5;
-    border-radius: initial !important;
 }
 
 /* Image display */
@@ -559,4 +562,5 @@ blockquote {
 
 .notion-callout {
     border: none;
+    border-radius: var(--border-radius-lg);
 }
