@@ -78,3 +78,19 @@ body {
 .notion-page-scroller {
   padding-top: 8px;
 }
+
+.notion-page-cover-wrapper {
+  box-shadow: 0px 0px 32px -12px rgba(15, 15, 15, 0.1) !important;
+}
+
+.notion-asset-wrapper-image {
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.notion-asset-wrapper-image img {
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.notion-asset-wrapper-image div {
+  border-radius: var(--border-radius-lg) !important;
+}
