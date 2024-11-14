@@ -71,8 +71,14 @@ body {
   }
 }
 
+.notion-collection-card {
+  transition: 0.2s ease;
+  border-radius: var(--border-radius-xl) !important;
+}
+
 .notion-collection-card:hover {
   background: var(--blue-bg) !important;
+  transition: 0.2s ease;
 }
 
 .notion-page-scroller {
