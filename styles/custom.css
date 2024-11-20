@@ -123,7 +123,7 @@
 .notion-page-icon-inline {
     display: flex;
     justify-content: center;
-    margin: 0 4px 0 0 !important;
+    margin: 0 2px 0 0 !important;
 }
 
 .notion-page-icon-inline svg {
@@ -681,13 +681,40 @@ details {
 
 .notion-block-13d7c3b21633804f873cff53c7da67ad .notion-page-content-inner .notion-asset-wrapper {
     margin: 0;
-    border-radius: 0 !important;
+}
+
+.notion-block-1447c3b2163380c1afcac7b29dcd3dd3 .notion-page-content-inner .notion-asset-wrapper {
+    margin: 0;
 }
 
 .notion-block-13d7c3b21633804f873cff53c7da67ad .notion-page-content-inner .notion-asset-wrapper img {
     border-radius: 0 !important;
 }
 
+.notion-block-1447c3b2163380c1afcac7b29dcd3dd3 .notion-page-content-inner .notion-asset-wrapper img {
+    border-radius: 0 !important;
+}
+
+
 .notion-row {
     overflow: visible !important;
+}
+
+.notion-h-title:has(.notion-page-icon-inline) img {
+    height: 32px;
+    width: 32px;
+}
+
+.notion-h-title:has(.notion-page-icon-inline) .notion-page-icon-inline {
+    max-width: 32px;
+    max-height: 32px;
+    height: 32px;
+    width: 32px;
+}
+
+notion-h-title:has(:not(.notion-page-icon-inline)) .notion-page-icon-inline {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
 }
