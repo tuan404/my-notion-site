@@ -109,7 +109,7 @@
 .notion-link:hover:not(:has(.notion-page-title-text)) {
   border-bottom-color: transparent !important;
 
-  background-image: linear-gradient(90.68deg, #00AEE3 0.26%, #00AEE3 102.37%);
+  background-image: linear-gradient(90.68deg, #1fffa8 0.26%, #00AEE3 102.37%);
   background-repeat: no-repeat;
   background-position: 0 100%;
   background-size: 100% 0.1rem;
@@ -136,7 +136,11 @@
 }
 
 .notion-text .notion-link:has(.notion-page-title) {
-    top: 5.5px !important;
+    top: 1.5px !important;
+}
+
+.notion-text .notion-link:has(.notion-page-icon-span) {
+    top: 0 !important;
 }
 
 .light-mode .notion-page-title-text {
@@ -716,9 +720,10 @@ details {
     width: 32px;
 }
 
-notion-h-title:has(:not(.notion-page-icon-inline)) .notion-page-icon-inline {
+.notion-text .notion-page-icon-inline {
     width: 16px !important;
     height: 16px !important;
     max-width: 16px !important;
     max-height: 16px !important;
+    font-size: 0.8em;
 }
