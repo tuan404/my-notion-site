@@ -314,6 +314,10 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
     }
 }
 
+.notion-collection.notion-block-15fd10e5f8c049bdadb36c394513a641 .notion-list-item-property:first-child {
+    display: none;
+}
+
 /* Re-make collection tabs view & behavior */
 .notion-collection-view-type {
     width: 100%;
