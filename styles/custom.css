@@ -727,3 +727,23 @@ details {
     max-height: 16px !important;
     font-size: 0.8em;
 }
+
+.notion-callout .notion-text .notion-link .notion-page-title-text {
+    top: -3px !important;
+}
+
+.notion-callout .notion-list .notion-link .notion-page-title-text {
+    top: -3px !important;
+}
+
+.notion-callout .notion-h {
+    margin-top: 0;
+}
+
+.notion-text .notion-page-icon-inline:has(svg.notion-page-icon) {
+    display: none;
+}
+
+.notion-text:has(svg.notion-page-icon) .notion-page-title-text {
+    top: -1.5px !important;
+}
