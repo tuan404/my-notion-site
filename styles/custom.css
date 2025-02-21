@@ -755,3 +755,14 @@ details {
 .notion.notion-app.light-mode.notion-block-1457c3b21633807bae77da8c87992ad2 .notion-page.notion-page-no-cover {
     padding-top: 0 !important;
 }
+
+.notion-callout.notion-block-1477c3b2163380f9a99cc943aa63d777 .notion-page-icon-inline {
+    max-width: initial !important;
+    max-height: initial !important;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.notion-callout.notion-block-1477c3b2163380f9a99cc943aa63d777 .notion-page-icon {
+    font-size: 1.8em;
+}

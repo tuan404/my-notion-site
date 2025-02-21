@@ -14,7 +14,7 @@ export default siteConfig({
   author: 'Tuan Truong',
 
   // open graph metadata (optional)
-  description: 'Howdy I am Tuan, a designer that codes and build things!',
+  description: 'Crafting Designs, Solving Problems, Building Experiences.',
 
   // social usernames (optional)
   // twitter: 'transitive_bs',
