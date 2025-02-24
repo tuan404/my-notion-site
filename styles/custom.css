@@ -121,10 +121,6 @@
   transition-property: background-size;
   transition-duration: 300ms;
 }
-
-.notion-link {
-    
-}
 /* End of LINK */
 
 /* MENTIONED PAGES */
@@ -148,7 +144,7 @@
 }
 
 .notion-text .notion-link:has(.notion-page-icon-span) {
-    top: 0 !important;
+    top: -1px !important;
 }
 
 .light-mode .notion-page-title-text {
@@ -796,4 +792,20 @@ details {
 
 .hidden-block {
     display: none !important;
-  }
+}
+
+.notion-list-item-title .notion-page-icon-inline {
+    align-self: center;
+}
+
+.notion-list .notion-link {
+    top: 3px !important;
+}
+
+.notion-block-61d965c9a176431ea6184fa027426d51 {
+    color: white;
+}
+
+.notion-block-1a17c3b2163380aa9a9ff6e327e7aecf {
+    width: auto !important;
+}
