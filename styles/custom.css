@@ -499,6 +499,10 @@ ol > ol {
     margin: auto;
 }
 
+.notion-page-icon-hero.notion-page-icon-span img {
+    width: 80% !important;
+}
+
 .notion-page-icon-hero.notion-page-icon-span span {
     align-content: center;
     font-size: 72px !important;
