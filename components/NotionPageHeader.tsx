@@ -53,12 +53,7 @@ export const NotionPageHeader: React.FC<{
     : 'Untitled Page'
 
   // Log the current page ID and title
-  console.log(
-    'sanitizedCurrentPageId:',
-    sanitizedCurrentPageId,
-    'title:',
-    title
-  )
+  console.log('PageId:', sanitizedCurrentPageId, 'title:', title)
 
   if (navigationStyle === 'default') {
     return <Header block={block} />
