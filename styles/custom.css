@@ -412,7 +412,7 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 }
 
 .notion-gallery-grid.notion-gallery-grid-size-small {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 2vmin;
     gap: 2vmin !important;
 }
@@ -803,7 +803,7 @@ details {
 }
 
 .notion-list .notion-link {
-    top: 3px !important;
+    top: 4.5px !important;
 }
 
 .notion-block-61d965c9a176431ea6184fa027426d51 {
