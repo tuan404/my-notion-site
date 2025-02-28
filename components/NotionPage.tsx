@@ -14,9 +14,9 @@ import { useSearchParam } from 'react-use'
 
 import * as config from '@/lib/config'
 import * as types from '@/lib/types'
+import { filterHiddenBlocks } from '@/lib/filter-notion-blocks'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
-import { filterHiddenBlocks } from '@/lib/filter-notion-blocks'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
 import { Footer } from './Footer'
@@ -159,7 +159,14 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const components = React.useMemo(
     () => ({
-      nextImage: Image,
+      // Use a wrapper component to fix Next.js Image warnings
+      nextImage: (props) => {
+        const { src, alt, ...rest } = props
+        // Remove legacy layout prop
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { layout, ...safeProps } = rest
+        return <Image src={src} alt={alt || ''} {...safeProps} />
+      },
       nextLink: Link,
       Code,
       Collection,
@@ -204,7 +211,11 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const pageAside = React.useMemo(
     () => (
-      <PageAside block={block} recordMap={filteredRecordMap} isBlogPost={isBlogPost} />
+      <PageAside
+        block={block}
+        recordMap={filteredRecordMap}
+        isBlogPost={isBlogPost}
+      />
     ),
     [block, filteredRecordMap, isBlogPost]
   )
@@ -221,7 +232,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const title = getBlockTitle(block, recordMap) || site.name
   const sanitizedTitle = sanitizeTitleForClass(title)
-
 
   if (!config.isServer) {
     // add important objects to the window global for easy debugging
@@ -286,7 +296,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         pageAside={pageAside}
         footer={footer}
       />
-
     </>
   )
 }
