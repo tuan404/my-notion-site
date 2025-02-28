@@ -5,10 +5,15 @@ import * as types from 'notion-types'
 import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
 import { IoSunnySharp } from '@react-icons/all-files/io5/IoSunnySharp'
 import cs from 'classnames'
-import { getPageProperty } from 'notion-utils'
-import { Breadcrumbs, Header, Search, useNotionContext } from 'react-notion-x'
+import { Header, PageIcon, Search, useNotionContext } from 'react-notion-x'
 
-import { isSearchEnabled, navigationLinks, navigationStyle } from '@/lib/config'
+import {
+  isSearchEnabled,
+  name,
+  navigationLinks,
+  navigationStyle,
+  rootNotionPageId
+} from '@/lib/config'
 import { useDarkMode } from '@/lib/use-dark-mode'
 
 import styles from './styles.module.css'
@@ -39,30 +44,33 @@ export const NotionPageHeader: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
   pageId: string
 }> = ({ block, pageId }) => {
-  const { recordMap } = useNotionContext() // Get the Notion record map
-  const { components, mapPageUrl } = useNotionContext()
-
-  const sanitizedCurrentPageId = pageId ? pageId.replace(/-/g, '') : ''
-
-  // Ensure the pageBlock exists and recordMap contains data for this page ID
-  const pageBlock = recordMap?.block?.[sanitizedCurrentPageId]?.value
-
-  // If pageBlock exists, get the title, otherwise fallback
-  const title = pageBlock
-    ? getPageProperty('title', pageBlock, recordMap) || 'Untitled Page'
-    : 'Untitled Page'
-
-  // Log the current page ID and title
-  console.log('PageId:', sanitizedCurrentPageId, 'title:', title)
+  const { recordMap, components, mapPageUrl } = useNotionContext()
 
   if (navigationStyle === 'default') {
     return <Header block={block} />
   }
 
+  const currentPageId = pageId?.replace(/-/g, '')
+
+  // Get root block specifically
+  const rootBlock = recordMap?.block?.[rootNotionPageId]?.value
+
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
-        <Breadcrumbs block={block} rootOnly={true} />
+        <div className='breadcrumb'>
+          <components.PageLink
+            href={mapPageUrl(rootNotionPageId)}
+            className={cs(styles.navLink, 'breadcrumb')}
+          >
+            {rootBlock && (
+              <span className='notion-page-icon-inline'>
+                <PageIcon block={rootBlock} />
+              </span>
+            )}
+            <span className='notion-page-title'>{name}</span>
+          </components.PageLink>
+        </div>
 
         <div className='notion-nav-header-rhs breadcrumbs'>
           {navigationLinks
@@ -71,28 +79,23 @@ export const NotionPageHeader: React.FC<{
                 return null
               }
 
-              const sanitizedLinkPageId = link.pageId?.replace(/-/g, '')
-
-              console.log(
-                'sanitizedLinkPageId: ',
-                sanitizedLinkPageId,
-                'title: ',
-                link.title
-              )
-
-              const isActive = sanitizedLinkPageId === sanitizedCurrentPageId
+              const linkPageId = link.pageId?.replace(/-/g, '')
+              const isActive = linkPageId === currentPageId
 
               return (
                 <div
                   key={index}
                   className={cs('breadcrumb-wrapper', {
-                    isActive // Apply the isActive class to the div
+                    active: isActive,
+                    isActive: isActive
                   })}
                 >
                   {link.pageId ? (
                     <components.PageLink
                       href={mapPageUrl(link.pageId)}
-                      className={cs(styles.navLink, 'breadcrumb', 'button')}
+                      className={cs(styles.navLink, 'breadcrumb', 'button', {
+                        active: isActive
+                      })}
                     >
                       {link.title}
                     </components.PageLink>
