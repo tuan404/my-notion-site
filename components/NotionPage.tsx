@@ -159,7 +159,13 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const components = React.useMemo(
     () => ({
-      nextImage: Image,
+      // Use a wrapper component to fix Next.js Image warnings
+      nextImage: (props) => {
+        const { src, alt, ...rest } = props;
+        // Remove legacy layout prop
+        const { layout, ...safeProps } = rest;
+        return <Image src={src} alt={alt || ''} {...safeProps} />;
+      },
       nextLink: Link,
       Code,
       Collection,
