@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useRouter } from 'next/router'
 
 // Import helper function
 import * as types from 'notion-types'
@@ -44,6 +45,7 @@ export const NotionPageHeader: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
   pageId: string
 }> = ({ block, pageId }) => {
+  const router = useRouter()
   const { recordMap, components, mapPageUrl } = useNotionContext()
 
   if (navigationStyle === 'default') {
@@ -80,7 +82,8 @@ export const NotionPageHeader: React.FC<{
               }
 
               const linkPageId = link.pageId?.replace(/-/g, '')
-              const isActive = linkPageId === currentPageId
+              const isSubPageActive = link.activePaths?.includes(router.asPath?.split('?')[0])
+              const isActive = linkPageId === currentPageId || isSubPageActive
 
               return (
                 <div

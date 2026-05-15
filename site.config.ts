@@ -53,7 +53,16 @@ export default siteConfig({
   navigationLinks: [
     {
       title: 'My works',
-      pageId: '5583591bdf5146c498c0d94c09f7d3e6'
+      pageId: '5583591bdf5146c498c0d94c09f7d3e6',
+      activePaths: [
+        '/hong-ngoc-ha',
+        '/tmc-travel-management-company',
+        '/tourops-internal-tour-operation-system',
+        '/dms-data-mining-system',
+        '/linebase',
+        '/seo-tools',
+        '/vsses'
+      ]
     },
     {
       title: 'About',
