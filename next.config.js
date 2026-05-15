@@ -18,5 +18,44 @@ module.exports = withBundleAnalyzer({
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
+  },
+  async redirects() {
+    return [
+      {
+        source: '/hong-ngoc-ha',
+        destination: '/my-work/hong-ngoc-ha',
+        permanent: true
+      },
+      {
+        source: '/tmc-travel-management-company',
+        destination: '/my-work/tmc-travel-management-company',
+        permanent: true
+      },
+      {
+        source: '/tourops-internal-tour-operation-system',
+        destination: '/my-work/tourops-internal-tour-operation-system',
+        permanent: true
+      },
+      {
+        source: '/dms-data-mining-system',
+        destination: '/my-work/dms-data-mining-system',
+        permanent: true
+      },
+      {
+        source: '/linebase',
+        destination: '/my-work/linebase',
+        permanent: true
+      },
+      {
+        source: '/seo-tools',
+        destination: '/my-work/seo-tools',
+        permanent: true
+      },
+      {
+        source: '/vsses',
+        destination: '/my-work/vsses',
+        permanent: true
+      }
+    ]
   }
 })

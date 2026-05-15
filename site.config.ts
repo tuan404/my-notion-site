@@ -37,13 +37,13 @@ export default siteConfig({
     '/about-me': '8ac0a4321e2843b8bb9302496fe693e8',
     '/my-works': '5583591bdf5146c498c0d94c09f7d3e6',
     // My Works sub-pages
-    '/hong-ngoc-ha': '13d7c3b21633804f873cff53c7da67ad',
-    '/tmc-travel-management-company': '1367c3b216338185905ec6a11d103acf',
-    '/tourops-internal-tour-operation-system': '1367c3b21633815e8d25eb9beba60533',
-    '/dms-data-mining-system': 'c232ede8416e47ddab00fd7222362258',
-    '/linebase': '68d7ed2275cc4ecfba841315d7d37316',
-    '/seo-tools': '0b0e0e7c87664a09bc6bfae3cc54426a',
-    '/vsses': '1dac6126b8d94008ab2a78817d0a6676'
+    '/my-work/hong-ngoc-ha': '13d7c3b21633804f873cff53c7da67ad',
+    '/my-work/tmc-travel-management-company': '1367c3b216338185905ec6a11d103acf',
+    '/my-work/tourops-internal-tour-operation-system': '1367c3b21633815e8d25eb9beba60533',
+    '/my-work/dms-data-mining-system': 'c232ede8416e47ddab00fd7222362258',
+    '/my-work/linebase': '68d7ed2275cc4ecfba841315d7d37316',
+    '/my-work/seo-tools': '0b0e0e7c87664a09bc6bfae3cc54426a',
+    '/my-work/vsses': '1dac6126b8d94008ab2a78817d0a6676'
   },
 
   // whether to use the default notion navigation style or a custom one with links to
@@ -55,13 +55,13 @@ export default siteConfig({
       title: 'My works',
       pageId: '5583591bdf5146c498c0d94c09f7d3e6',
       activePaths: [
-        '/hong-ngoc-ha',
-        '/tmc-travel-management-company',
-        '/tourops-internal-tour-operation-system',
-        '/dms-data-mining-system',
-        '/linebase',
-        '/seo-tools',
-        '/vsses'
+        '/my-work/hong-ngoc-ha',
+        '/my-work/tmc-travel-management-company',
+        '/my-work/tourops-internal-tour-operation-system',
+        '/my-work/dms-data-mining-system',
+        '/my-work/linebase',
+        '/my-work/seo-tools',
+        '/my-work/vsses'
       ]
     },
     {
@@ -70,3 +70,4 @@ export default siteConfig({
     }
   ]
 })
+
