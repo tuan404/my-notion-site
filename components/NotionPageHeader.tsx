@@ -60,14 +60,18 @@ export const NotionPageHeader: React.FC<{
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
-        <div className='breadcrumb'>
+        <div>
           <components.PageLink
             href={mapPageUrl(rootNotionPageId)}
             className={cs(styles.navLink, 'breadcrumb')}
           >
-            {rootBlock && (
-              <span className='notion-page-icon-inline'>
+            {rootBlock ? (
+              <span className='notion-page-icon-inline notion-page-icon-image'>
                 <PageIcon block={rootBlock} />
+              </span>
+            ) : (
+              <span className='notion-page-icon-inline notion-page-icon-image'>
+                <img src="/favicon-128x128.png" className="notion-page-icon" alt={name} />
               </span>
             )}
             <span className='notion-page-title'>{name}</span>

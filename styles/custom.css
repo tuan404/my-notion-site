@@ -286,10 +286,15 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.notion-page-link:hover {
+.notion-page-link:not(.notion-collection-card):hover {
     background: var(--blue-bg);
     border-radius: var(--border-radius-md);
     transform: translateX(4px);
+}
+
+.notion-collection-card .notion-page-link:hover {
+    background: transparent;
+    transform: none;
 }
 
 @media only screen and (max-width: 500px) {
