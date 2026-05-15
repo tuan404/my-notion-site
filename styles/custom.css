@@ -274,12 +274,14 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 
 .notion-list-body {
     gap: 2px;
+    overflow: visible !important;
 }
 
 .notion-list-item {
     border-radius: var(--border-radius-md);
     height: initial;
     padding: 4px 8px;
+    overflow: visible !important;
 }
 
 .notion-page-link {
@@ -289,7 +291,13 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 .notion-page-link:not(.notion-collection-card):hover {
     background: var(--blue-bg);
     border-radius: var(--border-radius-md);
-    transform: translateX(4px);
+    transform: scale(1.01);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 1;
+}
+.dark-mode .notion-page-link:not(.notion-collection-card):hover {
+    box-shadow: 0 10px 30px -10px rgba(255,255,255,0.05);
 }
 
 .notion-collection-card .notion-page-link:hover {
