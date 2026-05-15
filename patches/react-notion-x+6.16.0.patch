@@ -1,0 +1,159 @@
+diff --git a/node_modules/react-notion-x/build/dev/third-party/collection.js b/node_modules/react-notion-x/build/dev/third-party/collection.js
+index 40e919c..9a592e0 100644
+--- a/node_modules/react-notion-x/build/dev/third-party/collection.js
++++ b/node_modules/react-notion-x/build/dev/third-party/collection.js
+@@ -6668,14 +6668,69 @@ var CollectionViewTabs = ({ collectionViewId, viewIds, onChangeView }) => {
+ };
+ var CollectionViewColumnDesc = (_a) => {
+   var _b = _a, { collectionView, className, children } = _b, rest = __objRest(_b, ["collectionView", "className", "children"]);
+-  const { type } = collectionView;
++  const { type, format } = collectionView;
+   const name = collectionView.name || `${type[0].toUpperCase()}${type.slice(1)} view`;
++  const icon = format == null ? void 0 : format.collection_view_icon;
++  const { mapImageUrl, darkMode } = useNotionContext();
++  
++  const notionIconMap = {
++    gallery: "/icons/grid_gray.svg",
++    list: "/icons/list_gray.svg",
++    table: "/icons/table_gray.svg",
++    board: "/icons/table_gray.svg",
++    calendar: "/icons/calendar_gray.svg",
++    timeline: "/icons/timeline_gray.svg"
++  };
++
++  let iconElement = null;
++  if (icon) {
++    if (icon.includes("http")) {
++      const url = mapImageUrl(icon, { parent_table: "collection", id: collectionView.id });
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else if (icon.startsWith("/icons/")) {
++      const url = "https://www.notion.so" + icon + "?mode=" + (darkMode ? "dark" : "light");
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else if (icon.startsWith("/")) {
++      const url = "https://www.notion.so" + icon;
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else {
++      iconElement = /* @__PURE__ */ React53.createElement("span", {
++        className: "notion-collection-view-type-icon",
++        style: { fontSize: '14px', lineHeight: '14px' }
++      }, icon);
++    }
++  } else {
++    const fallbackIconPath = notionIconMap[type];
++    if (fallbackIconPath) {
++      const url = "https://www.notion.so" + fallbackIconPath + "?mode=" + (darkMode ? "dark" : "light");
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else {
++      iconElement = /* @__PURE__ */ React53.createElement(CollectionViewIcon, {
++        className: "notion-collection-view-type-icon",
++        type
++      });
++    }
++  }
++
+   return /* @__PURE__ */ React53.createElement("div", __spreadValues({
+     className: cs("notion-collection-view-type", className)
+-  }, rest), /* @__PURE__ */ React53.createElement(CollectionViewIcon, {
+-    className: "notion-collection-view-type-icon",
+-    type
+-  }), /* @__PURE__ */ React53.createElement("span", {
++  }, rest), iconElement, /* @__PURE__ */ React53.createElement("span", {
+     className: "notion-collection-view-type-title"
+   }, name), children);
+ };
+diff --git a/node_modules/react-notion-x/build/third-party/collection.js b/node_modules/react-notion-x/build/third-party/collection.js
+index 216ef37..820044c 100644
+--- a/node_modules/react-notion-x/build/third-party/collection.js
++++ b/node_modules/react-notion-x/build/third-party/collection.js
+@@ -6668,14 +6668,70 @@ var CollectionViewTabs = ({ collectionViewId, viewIds, onChangeView }) => {
+ };
+ var CollectionViewColumnDesc = (_a) => {
+   var _b = _a, { collectionView, className, children } = _b, rest = __objRest(_b, ["collectionView", "className", "children"]);
+-  const { type } = collectionView;
++  const { type, format } = collectionView;
+   const name = collectionView.name || `${type[0].toUpperCase()}${type.slice(1)} view`;
++  const icon = format == null ? void 0 : format.collection_view_icon;
++  const { mapImageUrl, darkMode } = useNotionContext();
++  
++  const notionIconMap = {
++    gallery: "/icons/grid_gray.svg",
++    list: "/icons/list_gray.svg",
++    table: "/icons/table_gray.svg",
++    board: "/icons/table_gray.svg",
++    calendar: "/icons/calendar_gray.svg",
++    timeline: "/icons/timeline_gray.svg"
++  };
++
++  let iconElement = null;
++  if (icon) {
++    if (icon.includes("http")) {
++      const url = mapImageUrl(icon, { parent_table: "collection", id: collectionView.id });
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else if (icon.startsWith("/icons/")) {
++      const url = "https://www.notion.so" + icon + "?mode=" + (darkMode ? "dark" : "light");
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else if (icon.startsWith("/")) {
++      const url = "https://www.notion.so" + icon;
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else {
++      iconElement = /* @__PURE__ */ React53.createElement("span", {
++        className: "notion-collection-view-type-icon",
++        style: { fontSize: '14px', lineHeight: '14px' }
++      }, icon);
++    }
++  } else {
++    const fallbackIconPath = notionIconMap[type];
++    if (fallbackIconPath) {
++      const url = "https://www.notion.so" + fallbackIconPath + "?mode=" + (darkMode ? "dark" : "light");
++      iconElement = /* @__PURE__ */ React53.createElement("img", {
++        src: url,
++        className: "notion-collection-view-type-icon",
++        style: { width: '14px', height: '14px', objectFit: 'contain' }
++      });
++    } else {
++      iconElement = /* @__PURE__ */ React53.createElement(CollectionViewIcon, {
++        className: "notion-collection-view-type-icon",
++        type
++      });
++    }
++  }
++
++
+   return /* @__PURE__ */ React53.createElement("div", __spreadValues({
+     className: cs("notion-collection-view-type", className)
+-  }, rest), /* @__PURE__ */ React53.createElement(CollectionViewIcon, {
+-    className: "notion-collection-view-type-icon",
+-    type
+-  }), /* @__PURE__ */ React53.createElement("span", {
++  }, rest), iconElement, /* @__PURE__ */ React53.createElement("span", {
+     className: "notion-collection-view-type-title"
+   }, name), children);
+ };
