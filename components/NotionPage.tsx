@@ -313,6 +313,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
         mapImageUrl={mapImageUrl}
         pageAside={pageAside}
         footer={footer}
+        isImageZoomable={true}
       />
     </>
   )

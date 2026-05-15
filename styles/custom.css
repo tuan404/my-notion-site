@@ -283,13 +283,13 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
 }
 
 .notion-page-link {
-    transition: 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .notion-page-link:hover {
     background: var(--blue-bg);
-    transition: 0.3s ease;
     border-radius: var(--border-radius-md);
+    transform: translateX(4px);
 }
 
 @media only screen and (max-width: 500px) {
@@ -650,13 +650,26 @@ blockquote {
     flex-wrap: wrap;
 }
 
+.notion-collection-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notion-collection-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.15);
+}
+
+.dark-mode .notion-collection-card:hover {
+    box-shadow: 0 10px 30px -10px rgba(255,255,255,0.05);
+}
+
 .notion-collection-card .notion-collection-card-cover {
     transition: 0.3s ease;
 }
 
 .notion-collection-card:hover .notion-collection-card-cover {
     transition: 0.3s ease;
-    filter: brightness(112%) !important;
+    filter: brightness(105%) !important;
 }
 
 .notion-toggle summary {
