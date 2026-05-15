@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: notion-site-app
+    restart: always
+    environment:
+      - REDIS_HOST=notion-site-redis
+    networks:
+      - caddy
+      - internal
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: notion-site-redis
+    restart: always
+    networks:
+      - internal
+
+networks:
+  caddy:
+    external: true
+  internal:

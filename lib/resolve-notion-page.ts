@@ -86,6 +86,18 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     recordMap = await getPage(pageId)
   }
 
+  if (recordMap && recordMap.block) {
+    for (const key of Object.keys(recordMap.block)) {
+      if (
+        recordMap.block[key] &&
+        recordMap.block[key].value &&
+        !recordMap.block[key].value.id
+      ) {
+        recordMap.block[key].value.id = key
+      }
+    }
+  }
+
   const props = { site, recordMap, pageId }
   return { ...props, ...(await acl.pageAcl(props)) }
 }

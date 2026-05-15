@@ -162,12 +162,30 @@ export const NotionPage: React.FC<types.PageProps> = ({
       // Use a wrapper component to fix Next.js Image warnings
       nextImage: (props) => {
         const { src, alt, ...rest } = props
-        // Remove legacy layout prop
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { layout, ...safeProps } = rest
+        const { layout, width, height, objectFit, objectPosition, style, ...safeProps } = rest as any
+
+        if (layout === 'fill') {
+          safeProps.fill = true
+        } else if (width && height) {
+          safeProps.width = width
+          safeProps.height = height
+        } else {
+          safeProps.fill = true // fallback to fill if width/height missing
+        }
+
+        if (objectFit || objectPosition) {
+          safeProps.style = {
+            ...style,
+            ...(objectFit && { objectFit }),
+            ...(objectPosition && { objectPosition })
+          }
+        } else if (style) {
+          safeProps.style = style
+        }
+
         return <Image src={src} alt={alt || ''} {...safeProps} />
       },
-      nextLink: Link,
+      nextLink: (props) => <Link legacyBehavior {...(props as any)} />,
       Code,
       Collection,
       Equation,

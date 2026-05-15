@@ -3,6 +3,7 @@ import * as React from 'react'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 import * as Fathom from 'fathom-client'
 import { Analytics } from '@vercel/analytics/react'
 // used for rendering equations (optional)
@@ -57,9 +58,9 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return (
-    <>
+    <ErrorBoundary>
       <Component {...pageProps} />
       <Analytics />
-    </>
+    </ErrorBoundary>
   )
 }

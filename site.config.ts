@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Howdy, I am Tuan',
-  domain: 'tuantruong.site',
+  domain: 'truongtuan.site',
   author: 'Tuan Truong',
 
   // open graph metadata (optional)
@@ -30,17 +30,21 @@ export default siteConfig({
   // whether or not redis is enabled for caching generated preview images (optional)
   // NOTE: if you enable redis, you need to set the `REDIS_HOST` and `REDIS_PASSWORD`
   // environment variables. see the readme for more info
-  isRedisEnabled: false,
+  // @ts-ignore
+  isRedisEnabled: typeof process !== 'undefined' ? !!process.env.REDIS_HOST : false,
 
-  // map of notion page IDs to URL paths (optional)
-  // any pages defined here will override their default URL paths
-  // example:
-  //
-  // pageUrlOverrides: {
-  //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
-  //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
-  // }
-  pageUrlOverrides: null,
+  pageUrlOverrides: {
+    '/about-me': '8ac0a4321e2843b8bb9302496fe693e8',
+    '/my-works': '5583591bdf5146c498c0d94c09f7d3e6',
+    // My Works sub-pages
+    '/hong-ngoc-ha': '13d7c3b21633804f873cff53c7da67ad',
+    '/tmc-travel-management-company': '1367c3b216338185905ec6a11d103acf',
+    '/tourops-internal-tour-operation-system': '1367c3b21633815e8d25eb9beba60533',
+    '/dms-data-mining-system': 'c232ede8416e47ddab00fd7222362258',
+    '/linebase': '68d7ed2275cc4ecfba841315d7d37316',
+    '/seo-tools': '0b0e0e7c87664a09bc6bfae3cc54426a',
+    '/vsses': '1dac6126b8d94008ab2a78817d0a6676'
+  },
 
   // whether to use the default notion navigation style or a custom one with links to
   // important pages
