@@ -18,3 +18,8 @@
     --border-radius-xxl: 20px;
     --border-radius-xxxl: 24px;
 }
+
+.dark-mode {
+    /* In dark mode, blue-bg becomes a subtle neutral highlight instead of light blue */
+    --blue-bg: rgba(255, 255, 255, 0.08);
+}

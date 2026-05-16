@@ -284,6 +284,19 @@ div:has(+ .notion-block-6644e53486974cc99c7011fd0b1680a6) {
     overflow: visible !important;
 }
 
+/* Fix document icon size in list view to match Notion's 16px */
+.notion-list-item-title .notion-page-icon-span svg,
+.notion-list-item-title .notion-page-icon-inline svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Fix document icon size in gallery view title */
+.notion-gallery-grid .notion-page-title .notion-page-icon-span svg {
+    width: 20px;
+    height: 20px;
+}
+
 .notion-page-link {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

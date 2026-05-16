@@ -7,6 +7,8 @@ WORKDIR /app
 
 # Install dependencies
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+# Copy patches so patch-package (postinstall) can apply them
+COPY patches ./patches
 RUN \
   if [ -f yarn.lock ]; then yarn install; \
   elif [ -f package-lock.json ]; then npm ci; \

@@ -7,6 +7,8 @@ services:
     restart: always
     environment:
       - REDIS_HOST=notion-site-redis
+    ports:
+      - "3000:3000"
     networks:
       - caddy
       - internal
