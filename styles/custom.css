@@ -120,9 +120,11 @@
 
 /* MENTIONED PAGES */
 .notion-page-icon-inline {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
+    align-items: center;
     margin: 0 2px 0 0 !important;
+    vertical-align: middle;
 }
 
 .notion-page-icon-inline svg {
@@ -829,8 +831,14 @@ details {
     display: none !important;
 }
 
+.notion-list-item-title .notion-page-title {
+    display: inline-flex;
+    align-items: center;
+}
+
 .notion-list-item-title .notion-page-icon-inline {
     align-self: center;
+    flex-shrink: 0;
 }
 
 .notion-list .notion-link {
